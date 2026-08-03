@@ -47,9 +47,9 @@ Một transaction objet thường gồm
 ## 3. Các loại Transaction
 ransaction được chia thành nhiều loại khác nhau:
 
--ETH Transfer
--Contract Call
--Contract Deployment
+- ETH Transfer
+- Contract call
+- Contract Deployment
 
 ETH Transfer
 
@@ -62,7 +62,110 @@ Contract call
 Đây là transaction gọi 1 hàm trong smart contract 
 
 Có smart contract được thực thi và input chứa dữ liệu đã được ABI endcode 
+```
+{
+    "from": "0xAlice",
+    "to": "0xUSDT",
+    "value": "0",
+    "input": "0xa9059cbb..."
+}
+```
 
+Contract Deployment
 
+Đây là ransaction dùng để triển khai (Deploy) một Smart Contract mới lên blockchain
+Đặc điểm:
+Không gửi đến Contract đã tồn tại
+
+```to``` = ```null```
+
+input chứa Bytecode của Smart Contract
+
+Sau khi thực thi sẽ sinh ra một địa chỉ Contract mới (contractAddress trong Receipt)
+
+## 4. Transaction Lifecycle
+
+Transaction Lifecycle mô tả quá trình một Transaction được tạo, truyền đi, xác thực và thực thi trên blockchain
+
+Khi người dùng nhấn nút Send, giao dịch không được thực hiện ngay lập tức.
+
+Thay vào đó, nó phải trải qua nhiều bước như:
+
+Tạo Transaction
+
+Ký bằng Private Key
+
+Gửi lên mạng blockchain
+
+Chờ Validator xử lý
+
+Được ghi vào Block
+
+Smart Contract thực thi
+
+Blockchain trả về Receipt
+
+Quy trình: 
+```
+Người dùng
+
+↓
+
+Wallet tạo Transaction
+
+↓
+
+Ký Transaction bằng Private Key
+
+↓
+
+Broadcast lên mạng Blockchain
+
+↓
+
+Node nhận Transaction
+
+↓
+
+Đưa vào Mempool
+
+↓
+
+Validator chọn Transaction
+
+↓
+
+Đưa vào Block
+
+↓
+
+EVM thực thi
+
+↓
+
+Sinh Transaction Receipt
+
+↓
+
+Receipt chứa Event Logs
+```
+
+Các bước trong Transaction Lifecycle
+
+Bước 1. Người dùng tạo Transaction
+
+Người dùng thực hiện một hành động thông qua ví (MetaMask, Rabby, Coinbase Wallet,...)
+
+Ví dụ:
+
+Chuyển ETH
+
+Chuyển USDT
+
+Swap Token
+
+Mint NFT
+
+Ví sẽ thu thập các thông tin cần thiết để tạo Transaction
 
 
