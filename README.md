@@ -31,3 +31,16 @@ ví dụ
 }
 ```
 Nó mô tả thông tin giao dịch
+
+Một transaction objet thường gồm
+- Hash: Là mã định danh duy nhất của transaction
+- From: Địa chỉ người gửi 
+- To: Địa chỉ người nhận
+- Value: số lượng giá trị gửi 
+- Nonce: Vị trí của transaction
+- Gas: Giới hạn lượng gas transaction được phép tiêu thụ
+- GasPrice: Giá bạn sẵn sàng trả cho mỗi đơn vị gas
+- Input: Yêu cầu cho smart contract, Gọi hàm nào, ruyền tham số gì
+- Blocknumber: số thứ tự của block chứa transaction đó
+- Signature: chữ ký số của người gửi transaction
+
