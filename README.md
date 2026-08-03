@@ -44,3 +44,25 @@ Một transaction objet thường gồm
 - Blocknumber: số thứ tự của block chứa transaction đó
 - Signature: chữ ký số của người gửi transaction
 
+## 3. Các loại Transaction
+ransaction được chia thành nhiều loại khác nhau:
+
+-ETH Transfer
+-Contract Call
+-Contract Deployment
+
+ETH Transfer
+
+Dùng để chuyển ETH từ người này sang người khác, đơn giản nhất trong 3 loại
+
+Không có smart contract nào được thực thi
+
+Contract call
+
+Đây là transaction gọi 1 hàm trong smart contract 
+
+Có smart contract được thực thi và input chứa dữ liệu đã được ABI endcode 
+
+
+
+
