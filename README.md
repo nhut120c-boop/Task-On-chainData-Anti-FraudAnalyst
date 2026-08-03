@@ -12,7 +12,7 @@ Khi chuyển ETH
 
 Khi chuyển USDT
 
-Khi Mint 
+Khi Mint NFT
 
 Gọi Smart contract
 
