@@ -498,3 +498,230 @@ Tạo Log
 Lưu vào Receipt
 ```
 Nếu Smart Contract không dùng emit thì sẽ không có Log nào được tạo
+
+6.4 Quan hệ giữa Event và Log
+
+
+Event là thứ lập trình viên khai báo trong Smart Contract.
+
+Ví dụ:
+```
+event Transfer(
+    address from,
+    address to,
+    uint256 amount
+);
+```
+Khi chạy:
+
+emit Transfer(from,to,amount);
+
+Blockchain sẽ tạo ra:
+```
+Log
+
+Có thể hiểu:
+
+Event
+
+↓
+
+emit
+
+↓
+
+EVM
+
+↓
+
+Log
+```
+Hay nói cách khác:
+
+Event là định nghĩa trong code
+
+Log là dữ liệu thực tế được ghi lên blockchain sau khi emit
+
+Log không nằm trong Transaction
+
+Log cũng không nằm trong Block
+```
+Log được lưu bên trong Transaction Receipt
+```
+```
+Transaction
+
+↓
+
+Blockchain Execute
+
+↓
+
+Receipt
+
+↓
+
+logs
+```
+Ví dụ:
+```
+{
+    "status": 1,
+    "gasUsed": 51234,
+    "logs": [
+        ...
+    ]
+}
+```
+ Một Transaction có bao nhiêu Log?
+
+Có thể:
+
+Không có Log
+Transaction
+
+↓
+
+Không emit
+
+↓
+
+0 Log
+Một Log
+emit Transfer(...);
+
+↓
+
+1 Log
+Nhiều Log
+emit Transfer(...);
+
+emit Approval(...);
+
+emit Deposit(...);
+
+↓
+
+3 Logs
+
+Một Transaction có thể tạo ra rất nhiều Log
+
+
+6.7 Ví dụ thực tế
+
+Smart Contract:
+```
+event Transfer(
+    address from,
+    address to,
+    uint amount
+);
+
+function transfer(...) {
+
+    ...
+
+    emit Transfer(msg.sender,to,amount);
+
+}
+```
+Người dùng gọi:
+
+transfer(Bob,100)
+
+Sau khi Transaction hoàn thành.
+
+Receipt sẽ có:
+```
+Receipt
+
+↓
+
+logs
+
+↓
+
+Transfer Log
+```
+Frontend hoặc Backend chỉ cần đọc Log là biết:
+
+Ai gửi
+Ai nhận
+Bao nhiêu token
+
+## 7. Log Object
+
+Khái niệm
+
+Mỗi khi smart contract thực hiện câu lệnh ```emit```, EVM sẽ tạo ra Log object
+
+Log Object là dữ liệu lưu thông tin của một Event và được lưu trong trường logs của Transaction Receipt.
+
+Ví dụ:
+```
+event Transfer(
+    address indexed from,
+    address indexed to,
+    uint256 amount
+);
+
+emit Transfer(msg.sender, to, amount);
+```
+Sau khi Transaction hoàn thành:
+```
+Transaction
+
+↓
+
+Receipt
+
+↓
+
+logs
+
+↓
+
+Log Object
+```
+ Ví dụ Log Object
+ ```
+{
+    "address": "0xA0b86991...",
+    "topics": [
+        "0xddf252ad...",
+        "0x000000000000000000000000Alice",
+        "0x000000000000000000000000Bob"
+    ],
+    "data": "0x00000000000000000000000000000064",
+    "logIndex": 0,
+    "transactionHash": "0xabc...",
+    "blockNumber": 23567891
+}
+```
+Các field quan trọng 
+
+<img width="591" height="270" alt="image" src="https://github.com/user-attachments/assets/805bb3e0-e43d-4c94-859a-01bbb15f6f69" />
+
+Quan hệ giữa Event và Log
+```
+event
+    │
+    ▼
+emit
+    │
+    ▼
+EVM
+    │
+    ▼
+Log Object
+    │
+    ▼
+Receipt.logs
+```
+Event là định nghĩa
+emit là phát Event
+Log Object là dữ liệu thực tế được blockchain tạo ra
+
+
+
+
