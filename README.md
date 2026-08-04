@@ -824,13 +824,13 @@ Rule
 
 Không cảnh báo
 
-Nhưng.
+Nhưng
 
 99 ETH vẫn có thể rất đáng nghi
 
 Suy ra phải có kết hợp AI Rule học từ từ 
 
-2. Heuristic detection
+## 2. Heuristic detection
    
 Khái niệm
 
@@ -838,7 +838,7 @@ Heuristic detection là phương pháp phát hiện hành vi đáng ngờ bằng
 
 ví dụ 
 ```
-Khách hàng.
+Khách hàng
 
 Rút
 
@@ -846,10 +846,10 @@ Rút
 
 ↓
 
-Bình thường.
+Bình thường
 ```
 ```
-Khách hàng.
+Khách hàng
 
 Rút
 
