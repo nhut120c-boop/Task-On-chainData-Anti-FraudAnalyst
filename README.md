@@ -722,6 +722,41 @@ Event là định nghĩa
 emit là phát Event
 Log Object là dữ liệu thực tế được blockchain tạo ra
 
+---
+## Tìm hiểu Rule Engine / Heuristic detection (ngưỡng giao dịch, tần suất, địa chỉ lạ).
 
+## 1.Rule Engine 
+
+Rule Engine là 1 hệ thống kiểm tra dữ liệu theo 1 quy định được cài đặc trước
+
+Ví dụ
+```
+IF (Điều kiện đúng)
+
+THEN (Thực hiện hành động)
+```
+```
+IF
+
+Điểm >= 5
+
+THEN
+
+Đậu
+```
+```
+IF
+
+Tuổi <18
+
+THEN
+
+Rớt
+```
+Rule Engine chỉ việc kiểm tra điều kiện
+
+Đúng thì thực hiện
+
+Sai thì bỏ qua
 
 
