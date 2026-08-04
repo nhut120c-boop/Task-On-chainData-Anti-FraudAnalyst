@@ -759,4 +759,131 @@ Rule Engine chỉ việc kiểm tra điều kiện
 
 Sai thì bỏ qua
 
+Trên blockchain: 
+Ví dụ: 
+```
+From
+
+0xAlice
+
+To
+
+0xBob
+
+Amount
+
+500 ETH
+```
+có Rule là 
+```
+IF
+
+Amount >100 ETH
+
+↓
+
+Alert
+```
+Hệ thống sinh cảnh báo
+
+Vì transaction vượt quá rule 
+
+Rule gồm: 
+```
+Điều kiện
+
+↓
+
+Kiểm tra
+
+↓
+
+Kết quả
+```
+Cách hoạt động của Rule Engire 
+
+Không phân tích 
+
+Không suy luận 
+
+Chỉ kiểm tra điều kiện
+
+Nhược điểm
+
+Giả sử
+
+Amount
+
+99 ETH
+
+Rule
+
+>100 ETH
+
+↓
+
+Không cảnh báo
+
+Nhưng.
+
+99 ETH vẫn có thể rất đáng nghi
+
+Suy ra phải có kết hợp AI Rule học từ từ 
+
+2. Heuristic detection
+   
+Khái niệm
+
+Heuristic detection là phương pháp phát hiện hành vi đáng ngờ bằng cách kết hợp nhiều dấu hiệu đáng ngờ thay vì dựa vào rule duy nhất
+
+ví dụ 
+```
+Khách hàng.
+
+Rút
+
+50 triệu
+
+↓
+
+Bình thường.
+```
+```
+Khách hàng.
+
+Rút
+
+50 triệu
+
+↓
+
+5 lần
+
+↓
+
+Trong
+
+2 phút
+
+↓
+
+Bất thường.
+```
+Không phải vì
+
+50 triệu
+
+Mà vì
+```
+50 triệu
+
++
+
+5 lần
+
++
+
+2 phút
+```
+Đó là Heuristic
 
