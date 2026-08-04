@@ -887,3 +887,40 @@ Mà vì
 ```
 Đó là Heuristic
 
+## Heuristic trên Blockchain
+
+Ví dụ
+
+Một ví
+```
+Ví mới tạo
+
+↓
+
+Nhận
+
+1000 ETH
+
+↓
+
+10 giây sau
+
+Chuyển hết
+
+↓
+
+Đến Contract lạ
+```
+Nếu nhìn từng cái
+
+Ví mới tạo → Bình thường
+Nhận 1000 ETH → Có thể bình thường
+Chuyển tiền → Bình thường
+
+Nhưng khi kết hợp lại
+
+↓
+
+Có khả năng rất cao là hành vi đáng ngờ
+
+Đây chính là **Heuristic Detection**
