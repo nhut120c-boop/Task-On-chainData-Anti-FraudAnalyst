@@ -924,3 +924,19 @@ Nhưng khi kết hợp lại
 Có khả năng rất cao là hành vi đáng ngờ
 
 Đây chính là **Heuristic Detection**
+
+3. Các Rule phổ biến
+   
+Transaction Threshold (Ngưỡng giao dịch)
+
+Transaction Frequency (Tần suất giao dịch)
+
+Unknown Address (Địa chỉ lạ)
+
+Blacklist Address (Địa chỉ nguy hiểm)
+
+Contract Interaction
+
+Time Window Rule
+
+
